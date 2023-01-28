@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jap_reading/screens/home_screen.dart';
+import 'package:jap_reading/views/main_view.dart';
+import 'package:provider/provider.dart';
+
+import 'data/themes/app_themes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +14,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context) => MainView(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: Themes.primalTheme,
+        darkTheme: Themes.darkTheme,
+        themeMode: ThemeMode.system,
+        home: const HomeScreen(),
       ),
-      home: const Scaffold(),
     );
   }
 }
