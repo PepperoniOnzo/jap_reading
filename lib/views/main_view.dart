@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:jap_reading/data/configurations.dart';
 import 'package:jap_reading/data/data_model.dart';
 import 'package:jap_reading/services/generator.dart';
@@ -8,6 +8,8 @@ import 'package:jap_reading/services/generator.dart';
 class MainView extends ChangeNotifier {
   late DataModel word;
   bool mode = false;
+
+  ThemeMode themeMode = ThemeMode.dark;
 
   final Generator generator = Generator();
   final Random random = Random();
@@ -58,5 +60,9 @@ class MainView extends ChangeNotifier {
     });
   }
 
-  tap() => mode ? nextWord() : changeMode();
+  void tap() => mode ? nextWord() : changeMode();
+
+  void setThemeMode() => themeMode == ThemeMode.dark
+      ? themeMode = ThemeMode.light
+      : themeMode = ThemeMode.dark;
 }

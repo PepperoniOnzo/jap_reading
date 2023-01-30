@@ -20,14 +20,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => MainView(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: Themes.primalTheme,
-        darkTheme: Themes.darkTheme,
-        themeMode: ThemeMode.system,
-        home: const HomeScreen(),
-      ),
+      child: Consumer<MainView>(builder: (context, value, child) {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: value.themeMode == ThemeMode.light
+              ? Themes.primalTheme
+              : Themes.darkTheme,
+          home: const HomeScreen(),
+        );
+      }),
     );
   }
 }

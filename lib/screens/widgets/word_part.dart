@@ -14,7 +14,7 @@ class WordPart extends StatelessWidget {
         children: <Widget>[
           Text(context.watch<MainView>().word.shown,
               style: Theme.of(context).textTheme.headline4),
-          const VerticalDivider(width: 25),
+          const SizedBox(width: 25),
           AnimatedOpacity(
               opacity: context.watch<MainView>().mode ? 1 : 0,
               curve: Curves.easeInOut,
