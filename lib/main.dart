@@ -9,8 +9,7 @@ import 'data/themes/app_themes.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+
   runApp(const MyApp());
 }
 
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MainView(),
       child: MaterialApp(
-        
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: Themes.primalTheme,

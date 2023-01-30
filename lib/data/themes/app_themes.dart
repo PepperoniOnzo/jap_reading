@@ -11,6 +11,10 @@ class Themes {
   );
 
   static ThemeData darkTheme = ThemeData(
-      primarySwatch: Colors.blue,
-      scaffoldBackgroundColor: AppColors.darkPrimaryBackground);
+    primarySwatch: Colors.blue,
+    scaffoldBackgroundColor: AppColors.darkPrimaryBackground,
+    textTheme: TextTheme(
+        headline4: TextStyle(color: AppColors.darkSecondaryText),
+        subtitle1: TextStyle(color: AppColors.darkPrimaryText)),
+  );
 }
