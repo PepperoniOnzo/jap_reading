@@ -62,7 +62,10 @@ class MainView extends ChangeNotifier {
 
   void tap() => mode ? nextWord() : changeMode();
 
-  void setThemeMode() => themeMode == ThemeMode.dark
-      ? themeMode = ThemeMode.light
-      : themeMode = ThemeMode.dark;
+  void setThemeMode() {
+    themeMode == ThemeMode.dark
+        ? themeMode = ThemeMode.light
+        : themeMode = ThemeMode.dark;
+    notifyListeners();
+  }
 }
