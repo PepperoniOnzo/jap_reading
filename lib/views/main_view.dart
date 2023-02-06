@@ -8,6 +8,7 @@ import 'package:jap_reading/services/generator.dart';
 class MainView extends ChangeNotifier {
   late DataModel word;
   bool mode = false;
+  double hiraganaToKatakanaCof = 0.5;
 
   ThemeMode themeMode = ThemeMode.dark;
 
@@ -27,11 +28,9 @@ class MainView extends ChangeNotifier {
 
   void setNextWord() {
     String shown = '', hiden = '';
-    bool choice;
-    for (var i = 0; i < Configurations.maxWords; i++) {
-      choice = random.nextBool();
 
-      if (choice) {
+    for (var i = 0; i < Configurations.maxWords; i++) {
+      if (random.nextDouble() >= hiraganaToKatakanaCof) {
         generator
             .getHirigana(Configurations.maxLetters - random.nextInt(2))
             .forEach((key, value) {
@@ -66,6 +65,11 @@ class MainView extends ChangeNotifier {
     themeMode == ThemeMode.dark
         ? themeMode = ThemeMode.light
         : themeMode = ThemeMode.dark;
+    notifyListeners();
+  }
+
+  void setNewCof(double value) {
+    hiraganaToKatakanaCof = value;
     notifyListeners();
   }
 }

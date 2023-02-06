@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jap_reading">
    <application
-        android:label="jap_reading"
+        android:label="JReading"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

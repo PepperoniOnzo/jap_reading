@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
+
 import 'package:jap_reading/data/themes/app_colors.dart';
 import 'package:jap_reading/screens/widgets/touch_part.dart';
 import 'package:jap_reading/screens/widgets/word_part.dart';
 import 'package:jap_reading/views/main_view.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
